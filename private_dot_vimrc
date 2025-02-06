@@ -1,0 +1,38 @@
+" Disable compatibility with vi which can cause unexpected issues
+set nocompatible
+
+" Plugins
+call plug#begin()
+
+" Easy Motion
+Plug 'easymotion/vim-easymotion'
+
+nnoremap <SPACE> <Nop>
+let mapleader="\<SPACE>"
+map <Leader> <Plug>(easymotion-prefix)
+
+" VimTex
+Plug 'lervag/vimtex'
+
+call plug#end()
+
+" Turn on file type detection
+filetype plugin indent on
+
+" Turn syntax highlighting on
+syntax enable
+
+" Add numbers to each line on the left-hand side
+set number
+set relativenumber
+
+" Enable spell check and syntax
+set syntax
+set spell
+
+" Terminal mode shortcut customization
+tnoremap <Esc> <C-\><C-n>
+
+" Terminal mode disable spell check
+autocmd TermOpen * setlocal nospell
+
