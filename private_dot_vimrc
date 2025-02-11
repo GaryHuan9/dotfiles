@@ -1,6 +1,13 @@
 " Disable compatibility with vi which can cause unexpected issues
 set nocompatible
 
+" Download vim-plug if needed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Plugins
 call plug#begin()
 
@@ -12,7 +19,11 @@ let mapleader="\<SPACE>"
 map <Leader> <Plug>(easymotion-prefix)
 
 " VimTex
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'tag': 'v2.15' }
+let g:vimtex_view_method = 'zathura'
+
+" Vim Sleuth
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
