@@ -25,6 +25,12 @@ let g:vimtex_view_method = 'zathura'
 " Vim Sleuth
 Plug 'tpope/vim-sleuth'
 
+" Vim Commentary
+Plug 'tpope/vim-commentary'
+
+" indentline
+Plug 'yggdroot/indentline'
+
 call plug#end()
 
 " Turn on file type detection
@@ -44,6 +50,8 @@ set spell
 " Terminal mode shortcut customization
 tnoremap <Esc> <C-\><C-n>
 
-" Terminal mode disable spell check
-autocmd TermOpen * setlocal nospell
+if has('nvim')
+	" Terminal mode disable spell check
+	autocmd TermOpen * setlocal nospell
+endif
 
