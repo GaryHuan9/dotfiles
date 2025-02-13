@@ -25,11 +25,11 @@ let g:vimtex_view_method = 'zathura'
 " Vim Sleuth
 Plug 'tpope/vim-sleuth'
 
-" Vim Commentary
-Plug 'tpope/vim-commentary'
+" tComment
+Plug 'tomtom/tcomment_vim'
 
-" indentline
-Plug 'yggdroot/indentline'
+" Tokyo Night Color Scheme
+Plug 'folke/tokyonight.nvim'
 
 call plug#end()
 
