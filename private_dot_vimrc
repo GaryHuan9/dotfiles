@@ -31,27 +31,36 @@ Plug 'tomtom/tcomment_vim'
 " Tokyo Night Color Scheme
 Plug 'folke/tokyonight.nvim'
 
+" Vim Airline Themes
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
 call plug#end()
 
 " Turn on file type detection
 filetype plugin indent on
 
-" Turn syntax highlighting on
-syntax enable
+" Enable spell check
+set spell
 
 " Add numbers to each line on the left-hand side
 set number
 set relativenumber
 
-" Enable spell check and syntax
-set syntax
-set spell
-
 " Terminal mode shortcut customization
 tnoremap <Esc> <C-\><C-n>
+
+" Display white space characters
+set list
+let &listchars = "tab:├─ ,lead:·,multispace:␣,trail:␣,extends:»,precedes:«,nbsp:‡"
+let &showbreak = "↪\ "
 
 if has('nvim')
 	" Terminal mode disable spell check
 	autocmd TermOpen * setlocal nospell
+
+	" Set color scheme
+	colorscheme tokyonight-moon
 endif
 
