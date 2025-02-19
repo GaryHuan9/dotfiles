@@ -4,8 +4,8 @@ set nocompatible
 " Download vim-plug if needed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Plugins
@@ -51,16 +51,26 @@ set relativenumber
 " Terminal mode shortcut customization
 tnoremap <Esc> <C-\><C-n>
 
+" Use space characters instead of tabs
+set expandtab
+
+" Do not wrap lines by default
+set nowrap
+
 " Display white space characters
 set list
 let &listchars = "tab:├─ ,lead:·,multispace:␣,trail:␣,extends:»,precedes:«,nbsp:‡"
 let &showbreak = "↪\ "
 
-if has('nvim')
-	" Terminal mode disable spell check
-	autocmd TermOpen * setlocal nospell
+" Cursor highlighting
+highlight CursorLine cterm=NONE ctermbg=0
+set cursorline
 
-	" Set color scheme
-	colorscheme tokyonight-moon
+if has('nvim')
+    " Terminal mode disable spell check
+    autocmd TermOpen * setlocal nospell
+
+    " Set color scheme
+    colorscheme tokyonight-night
 endif
 
