@@ -17,6 +17,16 @@ Plug 'easymotion/vim-easymotion'
 nnoremap <SPACE> <Nop>
 let mapleader="\<SPACE>"
 map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_keys = 'asdkl;qwertyuiopzxcvbnm,./ghfj'
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0
+
+map s <Plug>(easymotion-s)
+map S <Plug>(easymotion-s2)
+nmap S <Plug>(easymotion-overwin-f2)
+map <Leader>l <Plug>(easymotion-bd-jk)
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 " VimTex
 Plug 'lervag/vimtex', { 'tag': 'v2.15' }
@@ -36,6 +46,9 @@ Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
+" Vim Repeat (Use the dot key to repeat plugin actions)
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 " Turn on file type detection
@@ -51,11 +64,21 @@ set relativenumber
 " Terminal mode shortcut customization
 tnoremap <Esc> <C-\><C-n>
 
-" Use space characters instead of tabs
+" Use space characters instead of tabs and display tab as four spaces
 set expandtab
+set tabstop=4
 
 " Do not wrap lines by default
 set nowrap
+
+" Do incremental searching
+set incsearch
+
+" Show a few lines of context around the cursor
+set scrolloff=3
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
 
 " Display white space characters
 set list
