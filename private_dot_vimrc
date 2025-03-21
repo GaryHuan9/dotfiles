@@ -11,11 +11,13 @@ endif
 " Plugins
 call plug#begin()
 
+" Use space as the leader key
+nnoremap <SPACE> <Nop>
+let mapleader="\<SPACE>"
+
 " Easy Motion
 Plug 'easymotion/vim-easymotion'
 
-nnoremap <SPACE> <Nop>
-let mapleader="\<SPACE>"
 map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_keys = 'asdkl;qwertyuiopzxcvbnm,./ghfj'
 let g:EasyMotion_smartcase = 1
@@ -41,22 +43,26 @@ Plug 'tomtom/tcomment_vim'
 " Tokyo Night Color Scheme
 Plug 'folke/tokyonight.nvim'
 
-" Vim Airline Themes
+" Vim Airline
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+AirlineTheme wombat
+set noshowmode
 
 " Vim Repeat (Use the dot key to repeat plugin actions)
 Plug 'tpope/vim-repeat'
 
 " Vim Easy Align
 Plug 'junegunn/vim-easy-align'
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Vim GitGutter
+Plug 'airblade/vim-gitgutter'
+set updatetime=100
 
 call plug#end()
 
@@ -70,8 +76,8 @@ set spell
 set number
 set relativenumber
 
-" Terminal mode shortcut customization
-tnoremap <Esc> <C-\><C-n>
+" Don't redraw screen while executing macros
+set lazyredraw
 
 " Use space characters instead of tabs and display tab as four spaces
 set expandtab
@@ -86,8 +92,9 @@ set incsearch
 " Show a few lines of context around the cursor
 set scrolloff=3
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" Use indent fold method, but do not automatically fold anything at file start
+set foldmethod=indent
+set foldlevelstart=99
 
 " Display white space characters
 set list
@@ -106,3 +113,17 @@ if has('nvim')
     colorscheme tokyonight-night
 endif
 
+" Terminal mode shortcut customization
+tnoremap <Esc> <C-\><C-n>
+
+" Hides highlighted search results with shortcut
+nmap <silent> <Leader><CR> :noh<CR>
+
+" Don't use Ex mode, use Q for formatting
+nmap Q gq
+
+" Easier movement between windows
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
