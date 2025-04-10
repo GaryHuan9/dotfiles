@@ -49,11 +49,11 @@ sethandler <C-D> a:vim
 sethandler <C-E> a:vim
 sethandler <C-F> a:ide
 sethandler <C-G> a:ide
-sethandler <C-H> a:ide
+sethandler <C-H> a:vim
 sethandler <C-I> a:vim
-sethandler <C-J> a:ide
-sethandler <C-K> a:ide
-sethandler <C-L> a:ide
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
 sethandler <C-M> a:ide
 sethandler <C-N> a:vim
 sethandler <C-O> a:vim
