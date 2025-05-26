@@ -4,20 +4,11 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 source ~/.vimrc
 
-" Don't use over window jumps because IdeaVim EasyMotion doesn't support them
-map s <Plug>(easymotion-s)
-map S <Plug>(easymotion-s)
-map <Leader>l <Plug>(easymotion-bd-jk)
-map <Leader>L <Plug>(easymotion-bd-jk)
-
 " Use IDE join
 set ideajoin
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
-
-" Commentary plugin
-Plug 'tpope/vim-commentary'
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
@@ -28,6 +19,8 @@ Plug 'tpope/vim-commentary'
 
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
+
+map <Leader><CR> <Action>(ShowHoverInfo)
 
 sethandler <S-CR> a:ide
 sethandler <C-Pageup> a:ide
