@@ -8,27 +8,18 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins
-call plug#begin()
-
 " Use space as the leader key
 nnoremap <SPACE> <Nop>
 let mapleader="\<SPACE>"
 
-" Easy Motion
-Plug 'easymotion/vim-easymotion'
+" Plugins
+call plug#begin()
 
-map <Leader> <Plug>(easymotion-prefix)
-let g:EasyMotion_keys = 'asdkl;qwertyuiopzxcvbnm,./ghfj'
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_startofline = 0
-
-map s <Plug>(easymotion-s)
-map S <Plug>(easymotion-s2)
-nmap S <Plug>(easymotion-overwin-f2)
-map <Leader>l <Plug>(easymotion-bd-jk)
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
+" sneak.vim
+Plug 'justinmk/vim-sneak'
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+let g:sneak#use_ic_scs = 1
 
 " VimTex
 Plug 'lervag/vimtex', { 'tag': 'v2.15' }
@@ -63,6 +54,9 @@ nmap ga <Plug>(EasyAlign)
 Plug 'airblade/vim-gitgutter'
 set updatetime=100
 
+" csv.vim
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
 
 " Turn on file type detection
@@ -87,6 +81,9 @@ set nowrap
 
 " Do incremental searching
 set incsearch
+
+" Enable conceal syntax (works great for VimTex)
+set conceallevel=1
 
 " Show a few lines of context around the cursor
 set scrolloff=3
@@ -113,12 +110,9 @@ if has('nvim')
     let g:airline_theme="wombat"
 endif
 
-" Terminal mode shortcut customization
+" Exits insert mode in terminal mode
+" To send escape to the emulated terminal, use <C-\><Esc>
 tnoremap <Esc> <C-\><C-N>
-tnoremap <C-CR> <CR><C-\><C-N>
-
-" Hides highlighted search results with shortcut
-nnoremap <silent> <Leader><CR> :noh<CR>
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
