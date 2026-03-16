@@ -76,7 +76,14 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-vi-mode
+  aliases
+  alias-finder
+  autojump
+  zsh-autosuggestions
 )
+
+zstyle ':omz:plugins:alias-finder' autoload yes
+zstyle ':omz:plugins:alias-finder' cheaper yes
 
 source $ZSH/oh-my-zsh.sh
 
